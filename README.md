@@ -75,6 +75,54 @@ trendwave/
 
 ---
 
+## 🧩 Deployment Steps
+
+Here’s how to deploy this project using AWS:
+
+### 1. **Frontend (S3 Static Website Hosting)**
+
+* Go to S3 Console
+* Create a bucket (e.g. `trendwave-frontend`)
+* Enable static website hosting
+* Upload: `index.html`, `script.js`, product images
+* Set permissions to allow public read access
+
+### 2. **Backend (API + Lambda)**
+
+* Create an **HTTP API** in API Gateway
+* Define routes:
+
+  * `POST /registerUser`
+  * `POST /loginUser`
+  * `POST /insertProduct`
+  * `GET /getProducts`
+* For each route:
+
+  * Create and link to an AWS Lambda function (Node.js)
+  * Ensure all Lambdas have DynamoDB access
+
+### 3. **DynamoDB Tables**
+
+* **Users Table**
+
+  * Primary Key: `userid`
+* **Purchases Table**
+
+  * Partition Key: `userid`
+  * Sort Key: `timestamp`
+
+### 4. **CORS & Permissions**
+
+* Enable CORS in API Gateway
+* Add `Access-Control-Allow-Origin` headers
+
+### 5. **Test Everything**
+
+* Load the S3 link in browser
+* Register → Login → Buy → See purchases
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
