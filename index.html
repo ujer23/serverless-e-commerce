@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TrendWave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+    }
+
+    header {
+      background-color: #232f3e;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-bar input {
+      padding: 8px;
+      width: 280px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .login-btn {
+      background-color: #febd69;
+      color: #111;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .product-section {
+      padding: 24px;
+      display: none;
+    }
+
+    .product-section.active {
+      display: block;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #232f3e;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product:hover img {
+      transform: scale(1.1);
+    }
+
+    .product h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .buy-btn {
+      background: #ff9900;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 8% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 320px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal input {
+      width: 90%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    hr {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">TrendWave</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search products...">
+  </div>
+  <button class="login-btn" id="openModalBtn">Login / Register</button>
+</header>
+
+<!-- Modal -->
+<div id="authModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+
+    <h2>Login</h2>
+    <input type="text" placeholder="Username" id="loginUser">
+    <input type="password" placeholder="Password" id="loginPass">
+    <button class="login-btn">Login</button>
+
+    <hr>
+
+    <h2>Register</h2>
+    <input type="text" placeholder="New Username" id="registerUser">
+    <input type="password" placeholder="New Password" id="registerPass">
+    <button class="login-btn" style="background-color: #f0c14b;">Register</button>
+  </div>
+</div>
+
+<!-- Products Section -->
+<section class="product-section active">
+  <h2 class="section-title">Available Products</h2>
+  <div class="product-container">
+    <div class="product"><img src="bp.jpg" alt="Backpack"><h3>Backpack</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="dslr.jpg" alt="DSLR Camera"><h3>DSLR Camera</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="laptop.jpg" alt="Laptop"><h3>Laptop</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="mouse.png" alt="Mouse"><h3>Mouse</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="smartwatch.png" alt="Smartwatch"><h3>Smartwatch</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="speaker.jpg" alt="Speaker"><h3>Speaker</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="tablet.jpg" alt="Tablet"><h3>Tablet</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="wh.jpg" alt="Wireless Headphones"><h3>Wireless Headphones</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="u.jpg" alt="USB Hub"><h3>USB Hub</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="j.jpg" alt="Joystick"><h3>Joystick</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="e.jpg" alt="Earphones"><h3>Earphones</h3><button class="buy-btn">Buy</button></div>
+    <div class="product"><img src="r.jpg" alt="Router"><h3>Router</h3><button class="buy-btn">Buy</button></div>
+  </div>
+</section>
+
+<!-- Purchased Section -->
+<section class="product-section" id="purchasedSection">
+  <h2 class="section-title">Purchased Products</h2>
+  <div class="product-container" id="purchasedContainer"></div>
+</section>
+
+<script src="script.js"></script>
+<script>
+  const modal = document.getElementById('authModal');
+  const openModalBtn = document.getElementById('openModalBtn');
+  const closeBtn = document.querySelector('.close-btn');
+
+  openModalBtn.addEventListener('click', () => {
+    const loggedIn = localStorage.getItem("loggedInUser");
+    if (loggedIn) {
+      if (confirm("Do you want to logout?")) {
+        localStorage.removeItem("loggedInUser");
+        location.reload();
+      }
+    } else {
+      modal.style.display = 'block';
+    }
+  });
+
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  window.addEventListener('load', () => {
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+      document.getElementById('openModalBtn').innerText = user;
+    }
+  });
+</script>
+</body>
+</html>
