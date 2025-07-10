@@ -39,18 +39,6 @@ This is a lightweight serverless e-commerce web application that allows users to
 
 👉 [See full screenshots in GitHub issue](https://github.com/ujer23/serverless-e-commerce/issues/1#issue-3216620731)
 
-<img width="1366" height="682" alt="Image" src="https://github.com/user-attachments/assets/71934dbc-f006-4291-b1af-5833da050f89" />
-
-<img width="1366" height="679" alt="Image" src="https://github.com/user-attachments/assets/836d1384-2b0c-44fd-b5d6-2d9140d26092" />
-
-<img width="1366" height="690" alt="Image" src="https://github.com/user-attachments/assets/d2f90dd9-beab-4d46-aa6e-325a16187998" />
-
-<img width="1366" height="680" alt="Image" src="https://github.com/user-attachments/assets/14a85ec1-ec75-400f-a281-173a517d5a52" />
-
-<img width="1366" height="675" alt="Image" src="https://github.com/user-attachments/assets/19df3ee0-fdd7-4218-b2e3-b8ed2c4cb090" />
-
-<img width="1366" height="682" alt="Image" src="https://github.com/user-attachments/assets/cfafcce3-a440-4ce8-b676-db6856a732b0" />
-
 ---
 
 ## 📁 Folder Structure
