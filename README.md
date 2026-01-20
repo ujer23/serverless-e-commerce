@@ -2,7 +2,7 @@
 
 This is a lightweight serverless e-commerce web application that allows users to browse products, register/login, and simulate purchases. Built on AWS with a static frontend hosted via Amazon S3 and backend powered by Lambda + API Gateway.
 
----
+hiii from linux---
 
 ## 📊 Features
 
